@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+.App {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #5225bd;
+  height: 100vh;
+}
+
+.input-wrapper {
+  width: 100vw;
+}
+.input {
+  width: 400px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.course-container {
+  display: flex;
+  width: 1000px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.course {
+  width: 45%;
+  background-color: #fff;
+  min-height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.imagen {
+  height: 150px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.imagen img {
+  width: 70%;
+}
+
+.course-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 15px 0px;
+}
+
+.course-desc {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-align: justify;
+}
