@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "./reset.css";
+import Search from "./components/Search";
+import Courses from "./components/Courses";
 import { useState } from "react";
 
 function App() {
@@ -41,15 +43,13 @@ function App() {
 
   const [filteredCourses, setFilteredCourses] = useState(courses);
 
-  function handleChange(e) {
-    const { value } = e.target;
-
-    if (value == "") {
+  function handleChange(inputValue) {
+    if (inputValue == "") {
       setFilteredCourses(courses);
     }
 
     const filtered = courses.filter((course) => {
-      return course.name.toLowerCase().includes(value.toLowerCase());
+      return course.name.toLowerCase().includes(inputValue.toLowerCase());
     });
 
     setFilteredCourses(filtered);
@@ -57,26 +57,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className="input-wrapper">
-        <input
-          type="text"
-          placeholder="Ingrese el curso que desea buscar"
-          className="input"
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="course-container">
-        {filteredCourses.map((course, key) => (
-          <div className="course" key={key}>
-            <div className="imagen" style={{ backgroundColor: course.color }}>
-              <img src={course.image} />
-            </div>
-            <div className="course-title">{course.name}</div>
-            <div className="course-desc">{course.desc}</div>
-          </div>
-        ))}
-      </div>
+      <Search handleCallback={handleChange} />
+      <Courses visibleCourses={filteredCourses} />
     </div>
   );
 }
